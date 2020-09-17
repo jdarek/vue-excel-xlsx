@@ -15,11 +15,14 @@
         props: {
             columns: {
                 type: Array,
-                default: []
+                default: () => []
             },
             data: {
                 type: Array,
-                default: []
+                default: () => []
+            },
+            promisedData: {
+                type: Promise
             },
             filename: {
                 type: String,
@@ -29,10 +32,10 @@
                 type: String,
                 default: 'SheetName'
             }
-        },
+		},
 
         methods: {
-            exportExcel() {
+            async exportExcel() {
                 let createXLSLFormatObj = [];
                 let newXlsHeader = [];
                 let vm = this;
@@ -40,19 +43,26 @@
                     console.log("Add columns!");
                     return;
                 }
-                if (vm.data.length === 0){
-                    console.log("Add data!");
-                    return;
+                let data = vm.data;
+                if (data.length === 0){
+                    if (vm.promisedData){
+                    	data = await vm.promisedData;
+                    }
+                    if (data.length === 0){
+                    	console.log("Add data!");
+                    	return;
+                    }
                 }
-                $.each(vm.columns, function(index, value) {
-                    newXlsHeader.push(value.label);
+
+                vm.columns.forEach( function(value, index){
+                	newXlsHeader.push(value.label);
                 });
 
                 createXLSLFormatObj.push(newXlsHeader);
-                $.each(vm.data, function(index, value) {
-                    let innerRowData = [];
-                    $.each(vm.columns, function(index, val) {
-                        if (val.dataFormat && typeof val.dataFormat === 'function') {
+                data.forEach(function(value, index){
+                	let innerRowData = [];
+                    vm.columns.forEach(function(val, index){
+                    	if (val.dataFormat && typeof val.dataFormat === 'function') {
                             innerRowData.push(val.dataFormat(value[val.field]));
                         }else {
                             innerRowData.push(value[val.field]);

@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/t-chatoyan/vue-excel-xlsx"
+    "url": "git+https://github.com/ihsaneddin/vue-excel-xlsx"
   },
   "keywords": [
     "vue",
@@ -25,9 +25,9 @@
   "author": "Taron Chatoyan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/t-chatoyan/vue-excel-xlsx/issues"
+    "url": "https://github.com/ihsaneddin/vue-excel-xlsx/issues"
   },
-  "homepage": "https://github.com/t-chatoyan/vue-excel-xlsx#readme",
+  "homepage": "https://github.com/ihsaneddin/vue-excel-xlsx#readme",
   "devDependencies": {
     "bili": "^4.8.0",
     "rollup-plugin-vue": "^5.0.0",

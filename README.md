@@ -78,3 +78,9 @@ Convert your data as an XLSX file
             }
         }
 ```
+## Status
+
+Forked from [t-chatoyan/vue-excel-xlsx](https://github.com/t-chatoyan/vue-excel-xlsx), but the repo didn't seem to be maintained.
+- Added promise support for data
+- removed jquery depedency
+- use div instead button element as wrapper

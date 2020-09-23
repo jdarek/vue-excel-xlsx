@@ -23,6 +23,15 @@
             promisedData: {
                 type: Promise
             },
+            fetch: {
+                type: Function,
+            },
+            beforeGenerate:{
+                type: Function,
+            },
+            beforeFinish:{
+                type: Function,
+            },
             filename: {
                 type: String,
                 default: 'excel'
@@ -38,12 +47,18 @@
                 let createXLSLFormatObj = [];
                 let newXlsHeader = [];
                 let vm = this;
+                if(typeof vm.beforeGenerate === 'function'){
+                    await vm.beforeGenerate();
+                }
                 if (vm.columns.length === 0){
                     console.log("Add columns!");
                     return;
                 }
                 let data = vm.data;
                 if (data.length === 0){
+                    if(typeof vm.fetch === 'function'){
+                        data = await vm.fetch();
+                    }
                     if (vm.promisedData){
                     	data = await vm.promisedData;
                     }

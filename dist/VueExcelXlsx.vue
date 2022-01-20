@@ -7,6 +7,7 @@
 
 <script>
     import XLSX from 'xlsx/xlsx';
+    import download from "downloadjs";
     // import { saveAs } from 'file-saver';
 
     export default {

@@ -48,6 +48,8 @@
                 let createXLSLFormatObj = [];
                 let newXlsHeader = [];
                 let vm = this;
+                console.log("AAAAAAAAAA");
+                console.log(vm.columns);
                 if(typeof vm.beforeGenerate === 'function'){
                     await vm.beforeGenerate();
                 }
@@ -90,8 +92,8 @@
 
                 let ws_name = vm.sheetname;
 
-                let wb = XLSX.utils.book_new(),
-                    ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+                let wb = XLSX.utils.book_new();
+                let ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
                 XLSX.utils.book_append_sheet(wb, ws, ws_name);
                 // XLSX.writeFile(wb, filename);
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };

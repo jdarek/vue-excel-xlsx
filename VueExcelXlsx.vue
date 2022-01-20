@@ -98,9 +98,8 @@
                 // XLSX.writeFile(wb, filename);
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };
                 let wbout = XLSX.write(wb, wopts);
-                console.log(wbout);
-                // saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
-                download(new Blob([wbout]), filename, "application/octet-stream");
+                saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
+                download(new Blob([wbout], "application/octet-stream"), filename, "application/vnd.ms-excel");
             }
         }
     }

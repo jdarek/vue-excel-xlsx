@@ -7,8 +7,7 @@
 
 <script>
     import XLSX from 'xlsx/xlsx';
-    import download from "downloadjs";
-    // import { saveAs } from 'file-saver';
+    import { saveAs } from 'file-saver';
 
     export default {
         name: "vue-excel-xlsx",
@@ -94,14 +93,9 @@
                 let wb = XLSX.utils.book_new();
                 let ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
                 XLSX.utils.book_append_sheet(wb, ws, ws_name);
-                // XLSX.writeFile(wb, filename);
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };
                 let wbout = XLSX.write(wb, wopts);
-                let blob = new Blob([wbout], "application/octet-stream");
-                console.log("AAAAAAAAAA");
-                console.log(blob);
-                // saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
-                download(blob, filename, "application/vnd.ms-excel");
+                saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
             }
         }
     }

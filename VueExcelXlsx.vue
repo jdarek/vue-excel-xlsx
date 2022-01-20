@@ -100,7 +100,7 @@
                 let wbout = XLSX.write(wb, wopts);
                 console.log(wbout);
                 // saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
-                download(new Blob([wbout], filename, "application/octet-stream"));
+                download(new Blob([wbout]), filename, "application/octet-stream");
             }
         }
     }

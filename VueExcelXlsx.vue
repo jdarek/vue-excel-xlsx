@@ -49,8 +49,6 @@
                 let createXLSLFormatObj = [];
                 let newXlsHeader = [];
                 let vm = this;
-                console.log("AAAAAAAAAA");
-                console.log(vm.columns);
                 if(typeof vm.beforeGenerate === 'function'){
                     await vm.beforeGenerate();
                 }
@@ -99,8 +97,11 @@
                 // XLSX.writeFile(wb, filename);
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };
                 let wbout = XLSX.write(wb, wopts);
-                saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
-                download(new Blob([wbout], "application/octet-stream"), filename, "application/vnd.ms-excel");
+                let blob = new Blob([wbout], "application/octet-stream");
+                console.log("AAAAAAAAAA");
+                console.log(blob);
+                // saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
+                download(blob, filename, "application/vnd.ms-excel");
             }
         }
     }

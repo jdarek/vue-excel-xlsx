@@ -95,7 +95,8 @@
                 XLSX.utils.book_append_sheet(wb, ws, ws_name);
                 // XLSX.writeFile(wb, filename);
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };
-                var wbout = XLSX.write(wb, wopts);
+                let wbout = XLSX.write(wb, wopts);
+                console.log(wbout);
                 saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
             }
         }

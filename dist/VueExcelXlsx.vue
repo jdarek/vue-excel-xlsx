@@ -7,7 +7,6 @@
 
 <script>
     import XLSX from 'xlsx/xlsx';
-    // import download from "downloadjs";
     import { saveAs } from 'file-saver';
 
     export default {
@@ -97,7 +96,6 @@
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };
                 let wbout = XLSX.write(wb, wopts);
                 saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
-                // download(new Blob([wbout],{type:"application/octet-stream"}), filename, "application/vnd.ms-excel");
             }
         }
     }

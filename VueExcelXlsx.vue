@@ -7,7 +7,7 @@
 
 <script>
     import XLSX from 'xlsx/xlsx';
-    import download from "downloadjs";
+    import { saveAs } from 'file-saver';
 
     export default {
         name: "vue-excel-xlsx",
@@ -95,7 +95,7 @@
                 XLSX.utils.book_append_sheet(wb, ws, ws_name);
                 let wopts = { bookType:'xlsx', bookSST:false, type:'array' };
                 let wbout = XLSX.write(wb, wopts);
-                download(new Blob([wbout],{type:"application/octet-stream"}), filename, "application/vnd.ms-excel");
+                saveAs(new Blob([wbout],{type:"application/octet-stream"}), filename);
             }
         }
     }

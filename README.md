@@ -47,27 +47,36 @@ Convert your data as an XLSX file
                         label: "Quantity",
                         field: "quantity",
                     },
+                    {
+                        label: "Date",
+                        field: "date",
+                        cellFormat: 'mm/dd/yyyy'
+                    }
                 ],
                 data : [
                     {
                         product: "Beverage",
                         price: 10,
-                        quantity: 2
+                        quantity: 2,
+                        date: new Date()
                     },
                     {
                         product: "Snack",
                         price: 12,
-                        quantity: 6
+                        quantity: 6,
+                        date: new Date()
                     },
                     {
                         product: "Beverage",
                         price: 10,
-                        quantity: 5
+                        quantity: 5,
+                        date: new Date()
                     },
                     {
                         product: "Snack",
                         price: 12,
-                        quantity: 3
+                        quantity: 3,
+                        date: new Date()
                     }
                 ],
             }

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import XLSX from 'xlsx/xlsx';
+    var XLSX = require("xlsx");
     import { saveAs } from 'file-saver';
 
     export default {
